@@ -85,8 +85,7 @@ try:
 
         # Buy/Sell signal
         last_price = data['Close'].iloc[-1]
-        predicted_price = future_preds[-1]
-        st.subheader("Buy/Sell Suggestion")
+        # Buy/Sell signal last_price = data['Close'].iloc[-1] predicted_price = future_preds.ravel()[-1]
         if predicted_price > last_price * 1.03:
             st.success(f"📈 Suggestion: BUY — Predicted growth of {predicted_price - last_price:.2f} INR")
         elif predicted_price < last_price * 0.97:
