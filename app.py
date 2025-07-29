@@ -69,7 +69,7 @@ try:
         future_ordinals = np.array([d.toordinal() for d in future_dates]).reshape(-1, 1)
         future_preds = model.predict(future_ordinals)
 
-        # FIXED: flatten future_preds using .ravel()
+        # Flatten prediction
         pred_df = pd.DataFrame({
             "Date": future_dates,
             "Predicted Close Price": future_preds.ravel()
@@ -78,7 +78,7 @@ try:
 
         fig3, ax3 = plt.subplots()
         ax3.plot(data['Date'], data['Close'], label='Historical')
-        ax3.plot(pred_df['Date'], pred_df['Predicted Close Price'], label='Prediction", linestyle='--')
+        ax3.plot(pred_df['Date'], pred_df['Predicted Close Price'], label='Prediction', linestyle='--')
         ax3.set_title("Historical & Predicted Prices")
         ax3.legend()
         st.pyplot(fig3)
